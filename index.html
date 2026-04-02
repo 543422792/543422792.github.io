@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>午饭吃什么 | 午间灵感菜单</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+  :root {
+    --bg: #efe5d3;
+    --paper: #f7f1e7;
+    --paper-strong: #fbf7f1;
+    --ink: #221d18;
+    --muted: #6e665d;
+    --line: rgba(34, 29, 24, 0.12);
+    --brand: #7d1f25;
+    --brand-deep: #5e171d;
+    --forest: #27362f;
+    --gold: #b38a4a;
+    --wheel-1: #8c2f39;
+    --wheel-2: #a34632;
+    --wheel-3: #b76736;
+    --wheel-4: #9a7a3c;
+    --wheel-5: #64704a;
+    --wheel-6: #5d4c3d;
+    --shadow-lg: 0 24px 70px rgba(58, 39, 18, 0.12);
+    --shadow-md: 0 14px 38px rgba(58, 39, 18, 0.1);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at top left, rgba(179, 138, 74, 0.18), transparent 28%),
+      radial-gradient(circle at 85% 18%, rgba(125, 31, 37, 0.12), transparent 22%),
+      linear-gradient(180deg, #f4ead8 0%, #efe5d3 42%, #eadfcb 100%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 76%);
+    opacity: 0.28;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .page-shell {
+    position: relative;
+    z-index: 1;
+    width: min(1240px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 24px 0 52px;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 20px;
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    border-radius: 999px;
+    background: rgba(251, 247, 241, 0.72);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(72, 49, 26, 0.06);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(125, 31, 37, 0.18);
+    background: linear-gradient(145deg, rgba(125, 31, 37, 0.1), rgba(179, 138, 74, 0.08));
+    color: var(--brand);
+    font-size: 18px;
+  }
+
+  .brand-copy small,
+  .hero-copy small,
+  .section-label,
+  .feature-kicker,
+  .result-kicker {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .brand-copy small {
+    font-size: 11px;
+    color: rgba(34, 29, 24, 0.56);
+    margin-bottom: 4px;
+  }
+
+  .brand-copy strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .topbar-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .topbar-chip {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(39, 54, 47, 0.08);
+    border: 1px solid rgba(39, 54, 47, 0.1);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
+    gap: 28px;
+    align-items: stretch;
+    padding: 34px 0 24px;
+  }
+
+  .hero-copy,
+  .feature-panel,
+  .decision-panel,
+  .cards-section,
+  .result-card {
+    background: rgba(247, 241, 231, 0.88);
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero-copy {
+    border-radius: var(--radius-xl);
+    padding: 44px 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    right: -48px;
+    top: -40px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(179, 138, 74, 0.18), transparent 72%);
+  }
+
+  .hero-copy small {
+    font-size: 12px;
+    color: rgba(125, 31, 37, 0.76);
+    margin-bottom: 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.6rem, 5vw, 4.8rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    margin-bottom: 18px;
+    max-width: 9ch;
+  }
+
+  .hero-copy h1 span {
+    display: block;
+    color: var(--brand);
+  }
+
+  .hero-copy p {
+    max-width: 46ch;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, border-color 0.24s ease;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    box-shadow: 0 14px 32px rgba(125, 31, 37, 0.22);
+  }
+
+  .btn-secondary {
+    color: var(--forest);
+    border-color: rgba(39, 54, 47, 0.18);
+    background: rgba(255, 255, 255, 0.52);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 18px 36px rgba(125, 31, 37, 0.28);
+  }
+
+  .hero-notes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-note strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 20px;
+    color: var(--forest);
+  }
+
+  .hero-note span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .feature-panel {
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-kicker {
+    font-size: 11px;
+    color: rgba(34, 29, 24, 0.5);
+  }
+
+  .feature-image-wrap {
+    border-radius: 22px;
+    overflow: hidden;
+    aspect-ratio: 4 / 4.5;
+    position: relative;
+    background: #ddd2c0;
+  }
+
+  .feature-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 18%, rgba(34, 29, 24, 0.08) 100%);
+  }
+
+  .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-copy h2 {
+    font-size: 30px;
+    color: var(--brand);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  .feature-copy p {
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+  }
+
+  .feature-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    background: rgba(255, 255, 255, 0.54);
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .decision-panel {
+    border-radius: 34px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+  }
+
+  .section-label {
+    font-size: 12px;
+    color: rgba(125, 31, 37, 0.74);
+    margin-bottom: 12px;
+  }
+
+  .decision-copy h3 {
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    max-width: 10ch;
+    margin-bottom: 14px;
+  }
+
+  .decision-copy p {
+    max-width: 44ch;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 26px;
+  }
+
+  .decision-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .decision-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.52);
+    border: 1px solid rgba(34, 29, 24, 0.08);
+  }
+
+  .decision-item strong {
+    font-size: 12px;
+    color: var(--brand);
+    letter-spacing: 0.1em;
+  }
+
+  .decision-item span {
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 14px;
+  }
+
+  .wheel-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .wheel-stage {
+    position: relative;
+    width: min(100%, 420px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .wheel-stage::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.04) 74%);
+    filter: blur(8px);
+  }
+
+  .wheel-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .wheel-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 14px solid rgba(255, 248, 238, 0.95);
+    box-shadow:
+      inset 0 0 0 2px rgba(179, 138, 74, 0.45),
+      0 24px 60px rgba(50, 34, 19, 0.16);
+  }
+
+  .wheel {
+    position: relative;
+    width: calc(100% - 34px);
+    height: calc(100% - 34px);
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e7d7bf;
+    transition: transform 4.8s cubic-bezier(0.15, 0.78, 0.1, 1);
+  }
+
+  .wheel.is-spinning {
+    filter: saturate(1.06);
+  }
+
+  .wheel-segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 0;
+    transform-origin: 0% 100%;
+    clip-path: polygon(0 100%, 100% 0, 0 0);
+  }
+
+  .wheel-segment::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.12));
+  }
+
+  .wheel-label {
+    position: absolute;
+    left: 12px;
+    top: 22px;
+    width: 132px;
+    text-align: center;
+    color: #fffdf7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+    line-height: 1.1;
+  }
+
+  .wheel-label b {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+
+  .wheel-label span {
+    font-size: 11px;
+    opacity: 0.88;
+    letter-spacing: 0.06em;
+  }
+
+  .wheel-pointer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 54px;
+    z-index: 6;
+  }
+
+  .wheel-pointer::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #e2c27d, #a97a2d);
+    box-shadow: 0 6px 16px rgba(89, 58, 17, 0.22);
+  }
+
+  .wheel-pointer::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 26px solid var(--gold);
+    filter: drop-shadow(0 6px 10px rgba(89, 58, 17, 0.22));
+  }
+
+  .wheel-center {
+    position: absolute;
+    inset: 50%;
+    width: 104px;
+    height: 104px;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 251, 243, 0.98);
+    background: radial-gradient(circle at 30% 30%, #8d2c34, #5e171d 76%);
+    color: #fff;
+    box-shadow:
+      0 16px 34px rgba(125, 31, 37, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .wheel-center:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+
+  .wheel-caption {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+
+  .cards-section {
+    border-radius: 34px;
+    padding: 34px;
+    margin-top: 28px;
+  }
+
+  .cards-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .cards-head h3 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.1;
+    max-width: 12ch;
+  }
+
+  .cards-head p {
+    max-width: 34ch;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .food-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background: var(--paper-strong);
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      transform 0.36s ease,
+      box-shadow 0.36s ease,
+      border-color 0.36s ease,
+      opacity 0.6s ease;
+  }
+
+  .food-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .food-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(125, 31, 37, 0.22);
+    box-shadow: 0 22px 40px rgba(58, 39, 18, 0.14);
+  }
+
+  .food-card img {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .food-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .card-body {
+    padding: 18px 18px 20px;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .card-index {
+    color: rgba(125, 31, 37, 0.78);
+    font-weight: 700;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card-title strong {
+    font-size: 22px;
+    line-height: 1.15;
+  }
+
+  .card-emoji {
+    font-size: 20px;
+  }
+
+  .card-note {
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+  }
+
+  .card-pill {
+    display: inline-flex;
+    margin-top: 16px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(39, 54, 47, 0.08);
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  footer {
+    padding: 28px 4px 0;
+    color: rgba(34, 29, 24, 0.48);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .result-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(32, 21, 14, 0.55);
+    backdrop-filter: blur(10px);
+    z-index: 30;
+    opacity: 0;
+    transition: opacity 0.32s ease;
+  }
+
+  .result-overlay.show {
+    display: flex;
+    opacity: 1;
+  }
+
+  .result-card {
+    width: min(860px, 100%);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    overflow: hidden;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.32s ease;
+  }
+
+  .result-overlay.show .result-card {
+    transform: translateY(0) scale(1);
+  }
+
+  .result-copy {
+    padding: 38px 38px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+      radial-gradient(circle at top left, rgba(179, 138, 74, 0.16), transparent 32%),
+      linear-gradient(180deg, #f9f4ea 0%, #f3ebdd 100%);
+  }
+
+  .result-kicker {
+    font-size: 11px;
+    color: rgba(125, 31, 37, 0.7);
+    margin-bottom: 14px;
+  }
+
+  .result-copy h2 {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .result-name {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    color: var(--brand);
+    margin-bottom: 14px;
+  }
+
+  .result-description {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 32ch;
+  }
+
+  .result-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .result-panel {
+    position: relative;
+    min-height: 100%;
+    background: #d9cfbc;
+  }
+
+  .result-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .result-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(34, 29, 24, 0.02), rgba(34, 29, 24, 0.16));
+  }
+
+  .close-btn {
+    margin-top: 24px;
+    align-self: flex-start;
+  }
+
+  .reveal,
+  .cards-section,
+  .decision-panel {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible,
+  .cards-section.visible,
+  .decision-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1080px) {
+    .hero,
+    .decision-panel,
+    .result-card {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy h1,
+    .decision-copy h3 {
+      max-width: none;
+    }
+
+    .feature-panel {
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: auto 1fr;
+      align-items: center;
+    }
+
+    .feature-kicker {
+      grid-column: 1 / -1;
+    }
+
+    .feature-image-wrap {
+      aspect-ratio: 1;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-shell {
+      width: min(100% - 24px, 1240px);
+      padding-top: 14px;
+    }
+
+    .topbar {
+      padding: 12px 14px;
+      border-radius: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .topbar-meta {
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    .hero {
+      padding-top: 20px;
+      gap: 18px;
+    }
+
+    .hero-copy,
+    .feature-panel,
+    .decision-panel,
+    .cards-section {
+      padding: 24px;
+      border-radius: 24px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.4rem, 12vw, 3.8rem);
+    }
+
+    .hero-actions,
+    .hero-notes {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-notes {
+      display: grid;
+    }
+
+    .feature-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .wheel-stage {
+      width: min(100%, 360px);
+    }
+
+    .wheel-center {
+      width: 88px;
+      height: 88px;
+      border-width: 6px;
+      font-size: 11px;
+      padding: 14px;
+    }
+
+    .cards-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .result-copy {
+      padding: 28px 24px;
+    }
+
+    .result-panel {
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-copy p,
+    .decision-copy p,
+    .feature-copy p,
+    .card-note,
+    .result-description {
+      font-size: 14px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .wheel-label {
+      left: 10px;
+      top: 26px;
+      width: 110px;
+    }
+
+    .wheel-label b {
+      font-size: 12px;
+    }
+
+    .wheel-label span {
+      font-size: 10px;
+    }
+
+    .decision-item {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto;
+      animation: none !important;
+      transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <header class="topbar reveal">
+    <div class="brand">
+      <div class="brand-mark">餐</div>
+      <div class="brand-copy">
+        <small>午间灵感菜单</small>
+        <strong>今日午餐推荐</strong>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="topbar-chip">常见午餐精选</span>
+      <span>把熟悉的店铺整理成一份轻松好用的午餐清单</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy reveal">
+      <small>今日午餐灵感</small>
+      <h1>今天中午，<span>吃点真正想吃的。</span></h1>
+      <p>
+        把常去的午餐选择整理成一页清爽菜单，先看一眼，再交给转盘做最后决定。
+        少一点纠结，多一点食欲，把时间留给好好吃饭。
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="heroSpinBtn">开始选择</button>
+        <a class="btn btn-secondary" href="#menu-board">查看全部选项</a>
+      </div>
+      <div class="hero-notes">
+        <div class="hero-note">
+          <strong id="foodCount">11</strong>
+          <span>家人气午餐选择</span>
+        </div>
+        <div class="hero-note">
+          <strong>4.8s</strong>
+          <span>完成一次随机推荐</span>
+        </div>
+        <div class="hero-note">
+          <strong>1 份</strong>
+          <span>今日午餐答案</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="feature-panel reveal">
+      <span class="feature-kicker">本周人气</span>
+      <div class="feature-image-wrap">
+        <img class="feature-image" id="featureImage" src="" alt="">
+      </div>
+      <div class="feature-copy">
+        <h2 id="featureName"></h2>
+        <p id="featureNote"></p>
+        <div class="feature-meta">
+          <span class="pill" id="featureCategory"></span>
+          <span class="pill" id="featureTag"></span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="decision-panel" id="decisionPanel">
+    <div class="wheel-side">
+      <div class="wheel-stage">
+        <div class="wheel-frame">
+          <div class="wheel-pointer"></div>
+          <div class="wheel-ring"></div>
+          <div class="wheel" id="wheel"></div>
+          <button class="wheel-center" id="spinCenter" type="button" aria-label="开始转盘">开始<br>选择</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="spinBtn" type="button">转动转盘</button>
+      <p class="wheel-caption">点击中央按钮或主按钮，就能快速选出今天的午餐。</p>
+    </div>
+
+    <div class="decision-copy">
+      <span class="section-label">今日推荐</span>
+      <h3>转一转，选出今天最对胃口的那一味。</h3>
+      <p>
+        热汤面、米饭快餐、意式简餐、火烤汉堡，都在这一轮候选里。
+        想吃得快一点，还是吃得满足一点，先看看，再用转盘帮你定下来。
+      </p>
+      <div class="decision-list">
+        <div class="decision-item">
+          <strong>01</strong>
+          <span>把常去的午餐店集中到一页，浏览起来更轻松。</span>
+        </div>
+        <div class="decision-item">
+          <strong>02</strong>
+          <span>随机推荐足够直接，适合在犹豫的时候快速做决定。</span>
+        </div>
+        <div class="decision-item">
+          <strong>03</strong>
+          <span>每个选项都带有简短介绍，想凭直觉挑也很方便。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section" id="menu-board">
+    <div class="cards-head">
+      <div>
+        <span class="section-label">今日菜单</span>
+        <h3>今天想吃什么，先从这份午餐清单里看看。</h3>
+      </div>
+      <p>图片、类型和口味提示都整理好了；你可以直接点卡片查看结果，也可以继续交给转盘。</p>
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </section>
+
+  <footer>午间灵感菜单 © 2026 · 今天也要好好吃饭</footer>
+</div>
+
+<div class="result-overlay" id="resultOverlay">
+  <div class="result-card">
+    <div class="result-copy">
+      <span class="result-kicker">今日结果</span>
+      <h2>为你选好了</h2>
+      <div class="result-name" id="resultName"></div>
+      <p class="result-description" id="resultDescription"></p>
+      <div class="result-meta">
+        <span class="pill" id="resultCategory"></span>
+        <span class="pill" id="resultTag"></span>
+      </div>
+      <button class="btn btn-primary close-btn" id="closeResult" type="button">重新选择</button>
+    </div>
+    <div class="result-panel">
+      <img id="resultImg" src="" alt="">
+    </div>
+  </div>
+</div>
+
+<script>
+const foods = [
+  {
+    name: "麦当劳",
+    emoji: "🍔",
+    category: "经典快餐",
+    tag: "高效率午休",
+    note: "标准化出餐快、选择稳定，适合赶时间时的安全解法。",
+    img: "eat-what-assets/mcdonalds-burger.svg"
+  },
+  {
+    name: "汉堡王",
+    emoji: "🍔",
+    category: "火烤汉堡",
+    tag: "重口满足感",
+    note: "更偏厚重与火烤香气，适合想把午饭吃得更扎实一点的时候。",
+    img: "eat-what-assets/burger-king-burger.svg"
+  },
+  {
+    name: "兰州拉面",
+    emoji: "🍜",
+    category: "热汤面食",
+    tag: "暖胃首选",
+    note: "热汤、牛肉和面条的组合简单直接，是工作日常见的舒适解。",
+    img: "eat-what-assets/lanzhou-beef-noodles.svg"
+  },
+  {
+    name: "鱼汤面",
+    emoji: "🐟",
+    category: "清鲜系面食",
+    tag: "轻负担午餐",
+    note: "比重油更轻一点，带有汤底鲜味，适合想吃热食又不想太腻。",
+    img: "eat-what-assets/fish-soup-noodles.svg"
+  },
+  {
+    name: "萨莉亚",
+    emoji: "🥗",
+    category: "意式简餐",
+    tag: "社交友好",
+    note: "空间轻松、选择丰富，适合双人午餐或想换换口味的时候。",
+    img: "eat-what-assets/saizeriya-salad.svg"
+  },
+  {
+    name: "小馄饨",
+    emoji: "🥟",
+    category: "江南小吃",
+    tag: "清爽温和",
+    note: "分量更轻、节奏更缓，适合胃口一般但想吃点热乎的中午。",
+    img: "eat-what-assets/wonton-soup.svg"
+  },
+  {
+    name: "二楼川菜",
+    emoji: "🌶️",
+    category: "下饭川味",
+    tag: "刺激味蕾",
+    note: "如果今天需要一点辣味唤醒精神，川菜往往是最直接的答案。",
+    img: "eat-what-assets/sichuan-dishes.svg"
+  },
+  {
+    name: "味千拉面",
+    emoji: "🍜",
+    category: "日式拉面",
+    tag: "稳定连锁",
+    note: "偏成熟连锁体系，口味熟悉，适合不想试错的工作日午间。",
+    img: "eat-what-assets/ajisen-ramen.svg"
+  },
+  {
+    name: "大漠",
+    emoji: "🥩",
+    category: "西北风味",
+    tag: "肉感偏好",
+    note: "更有分量和香气，适合今天明显想吃硬菜的状态。",
+    img: "eat-what-assets/northwest-grill.svg"
+  },
+  {
+    name: "华莱士",
+    emoji: "🍗",
+    category: "炸鸡汉堡",
+    tag: "熟悉快选",
+    note: "价格友好、选择直给，是赶时间时非常现实的一类解法。",
+    img: "eat-what-assets/wallace-fried-chicken.svg"
+  },
+  {
+    name: "烧腊",
+    emoji: "🍖",
+    category: "广式快餐",
+    tag: "米饭杀手",
+    note: "叉烧、油鸡、双拼这类组合总能稳稳解决“想吃饭”的需求。",
+    img: "eat-what-assets/cantonese-roast-rice.svg"
+  }
+];
+
+const wheelPalette = ["var(--wheel-1)", "var(--wheel-2)", "var(--wheel-3)", "var(--wheel-4)", "var(--wheel-5)", "var(--wheel-6)"];
+const segmentAngle = 360 / foods.length;
+let currentRotation = 0;
+let isSpinning = false;
+
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
+const heroSpinBtn = document.getElementById("heroSpinBtn");
+const spinCenter = document.getElementById("spinCenter");
+const cardsGrid = document.getElementById("cardsGrid");
+const featureImage = document.getElementById("featureImage");
+const featureName = document.getElementById("featureName");
+const featureNote = document.getElementById("featureNote");
+const featureCategory = document.getElementById("featureCategory");
+const featureTag = document.getElementById("featureTag");
+const resultOverlay = document.getElementById("resultOverlay");
+const foodCount = document.getElementById("foodCount");
+
+foodCount.textContent = String(foods.length).padStart(2, "0");
+
+function buildWheel() {
+  foods.forEach((food, index) => {
+    const segment = document.createElement("div");
+    segment.className = "wheel-segment";
+    segment.style.background = wheelPalette[index % wheelPalette.length];
+    segment.style.transform = `rotate(${index * segmentAngle}deg) skewY(-${90 - segmentAngle}deg)`;
+
+    const label = document.createElement("div");
+    label.className = "wheel-label";
+    label.style.transform = `skewY(${90 - segmentAngle}deg) rotate(${segmentAngle / 2}deg)`;
+    label.innerHTML = `<b>${food.name}</b><span>${food.category}</span>`;
+
+    segment.appendChild(label);
+    wheel.appendChild(segment);
+  });
+}
+
+function buildCards() {
+  foods.forEach((food, index) => {
+    const card = document.createElement("article");
+    card.className = "food-card";
+    card.innerHTML = `
+      <img src="${food.img}" alt="${food.name}" loading="lazy">
+      <div class="card-body">
+        <div class="card-meta">
+          <span>${food.category}</span>
+          <span class="card-index">No. ${String(index + 1).padStart(2, "0")}</span>
+        </div>
+        <div class="card-title">
+          <span class="card-emoji">${food.emoji}</span>
+          <strong>${food.name}</strong>
+        </div>
+        <p class="card-note">${food.note}</p>
+        <span class="card-pill">${food.tag}</span>
+      </div>
+    `;
+    card.addEventListener("click", () => showResult(food));
+    cardsGrid.appendChild(card);
+  });
+}
+
+function updateFeature(food) {
+  featureImage.src = food.img;
+  featureImage.alt = food.name;
+  featureName.textContent = food.name;
+  featureNote.textContent = food.note;
+  featureCategory.textContent = food.category;
+  featureTag.textContent = food.tag;
+}
+
+function showResult(food) {
+  document.getElementById("resultName").textContent = food.name;
+  document.getElementById("resultDescription").textContent = food.note;
+  document.getElementById("resultCategory").textContent = food.category;
+  document.getElementById("resultTag").textContent = food.tag;
+  const resultImg = document.getElementById("resultImg");
+  resultImg.src = food.img;
+  resultImg.alt = food.name;
+  updateFeature(food);
+  resultOverlay.classList.add("show");
+}
+
+function closeResult() {
+  resultOverlay.classList.remove("show");
+}
+
+function spin() {
+  if (isSpinning) return;
+
+  isSpinning = true;
+  spinBtn.disabled = true;
+  heroSpinBtn.disabled = true;
+  wheel.classList.add("is-spinning");
+
+  const extraSpins = 5 + Math.random() * 3;
+  const randomAngle = Math.random() * 360;
+  const totalRotation = currentRotation + extraSpins * 360 + randomAngle;
+
+  wheel.style.transform = `rotate(${totalRotation}deg)`;
+  currentRotation = totalRotation;
+
+  const pointerAngle = (360 - (totalRotation % 360) + segmentAngle / 2) % 360;
+  const winnerIndex = Math.floor(pointerAngle / segmentAngle) % foods.length;
+
+  window.setTimeout(() => {
+    wheel.classList.remove("is-spinning");
+    showResult(foods[winnerIndex]);
+    isSpinning = false;
+    spinBtn.disabled = false;
+    heroSpinBtn.disabled = false;
+  }, 4900);
+}
+
+buildWheel();
+buildCards();
+updateFeature(foods[0]);
+
+spinBtn.addEventListener("click", spin);
+heroSpinBtn.addEventListener("click", spin);
+spinCenter.addEventListener("click", spin);
+
+document.getElementById("closeResult").addEventListener("click", closeResult);
+
+resultOverlay.addEventListener("click", event => {
+  if (event.target === resultOverlay) {
+    closeResult();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeResult();
+  }
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, index) => {
+    if (!entry.isIntersecting) return;
+    window.setTimeout(() => entry.target.classList.add("visible"), index * 60);
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll(".reveal, .decision-panel, .cards-section, .food-card").forEach(element => {
+  observer.observe(element);
+});
+</script>
+</body>
+</html>

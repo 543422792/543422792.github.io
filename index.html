@@ -1043,8 +1043,207 @@
     border: 0;
   }
 
+  .vote-panel {
+    border-radius: 34px;
+    padding: 30px 34px 34px;
+    margin-bottom: 28px;
+    background: rgba(247, 241, 231, 0.88);
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .vote-panel.is-join-mode {
+    border-color: rgba(125, 31, 37, 0.22);
+    box-shadow: 0 24px 70px rgba(125, 31, 37, 0.08);
+  }
+
+  .vote-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .vote-head h3 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.12;
+    max-width: 16ch;
+  }
+
+  .vote-head p {
+    max-width: 40ch;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+  }
+
+  .vote-lead {
+    max-width: 48ch;
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .vote-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .vote-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: stretch;
+    margin-bottom: 16px;
+  }
+
+  .vote-link-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(34, 29, 24, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    color: var(--ink);
+    font-family: inherit;
+  }
+
+  .vote-status {
+    font-size: 13px;
+    color: var(--forest);
+    margin-bottom: 12px;
+    min-height: 1.4em;
+  }
+
+  .vote-status.is-error {
+    color: #8b2e2e;
+  }
+
+  .vote-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .vote-option {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(34, 29, 24, 0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .vote-option.is-leading {
+    border-color: rgba(125, 31, 37, 0.35);
+    box-shadow: 0 8px 22px rgba(125, 31, 37, 0.08);
+  }
+
+  .vote-option-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    object-fit: cover;
+    background: rgba(231, 215, 191, 0.6);
+  }
+
+  .vote-option-body {
+    min-width: 0;
+  }
+
+  .vote-option-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .vote-option-title span.emoji {
+    font-size: 18px;
+  }
+
+  .vote-bar-wrap {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(34, 29, 24, 0.08);
+    overflow: hidden;
+  }
+
+  .vote-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--brand), var(--gold));
+    width: 0%;
+    transition: width 0.45s ease;
+  }
+
+  .vote-option-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .vote-option-meta strong {
+    color: var(--brand);
+    font-size: 15px;
+  }
+
+  .vote-cast-btn {
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 31, 37, 0.28);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--brand-deep);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+
+  .vote-cast-btn:hover {
+    background: rgba(125, 31, 37, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .vote-cast-btn.is-mine {
+    background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .vote-cast-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .vote-empty {
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   .reveal,
   .recommendation-panel,
+  .vote-panel,
   .filter-toolbar,
   .cards-section,
   .decision-panel {
@@ -1055,6 +1254,7 @@
 
   .reveal.visible,
   .recommendation-panel.visible,
+  .vote-panel.visible,
   .filter-toolbar.visible,
   .cards-section.visible,
   .decision-panel.visible {
@@ -1594,6 +1794,32 @@
       grid-template-columns: 1fr;
       padding: 10px 12px;
     }
+
+    .vote-panel {
+      padding: 18px 16px 22px;
+      border-radius: 22px;
+    }
+
+    .vote-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .vote-option {
+      grid-template-columns: 44px 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .vote-cast-btn {
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      text-align: center;
+    }
+
+    .vote-option-thumb {
+      width: 44px;
+      height: 44px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1698,6 +1924,32 @@
     </div>
   </section>
 
+  <section class="vote-panel reveal" id="votePanel" aria-labelledby="voteHeading">
+    <div class="vote-head">
+      <div>
+        <span class="section-label">群友一起选</span>
+        <h3 id="voteHeading">一起在群里定午饭</h3>
+      </div>
+      <div id="voteIntroWrap">
+        <p class="vote-lead" id="voteIntroLead">
+          点<strong>「复制微信群投票文案」</strong>，会按上面选好的分类列出店名，<strong>粘贴到微信群</strong>即可。
+        </p>
+      </div>
+    </div>
+    <div class="vote-actions" id="voteCreateActions">
+      <button class="btn btn-primary" id="voteWechatCopyBtn" type="button">复制微信群投票文案</button>
+      <button class="btn btn-secondary" id="voteCreateBtn" type="button">网页里投票（自动计票）</button>
+      <button class="btn btn-secondary" id="voteBackToMenuBtn" type="button" hidden>返回完整菜单</button>
+    </div>
+    <p class="vote-status" id="voteStatus" role="status"></p>
+    <div class="vote-link-row" id="voteShareBlock" hidden>
+      <input class="vote-link-input" id="voteLinkInput" type="text" readonly aria-label="投票链接">
+      <button class="btn btn-secondary" id="voteCopyBtn" type="button">复制链接</button>
+      <button class="btn btn-secondary" id="voteShareBtn" type="button" hidden>分享</button>
+    </div>
+    <div class="vote-list" id="voteList" aria-live="polite"></div>
+  </section>
+
   <section class="filter-toolbar reveal" id="filterToolbar" aria-label="午餐筛选">
     <div class="filter-group" id="filterGroup"></div>
     <p class="filter-status" id="filterStatus"></p>
@@ -1782,6 +2034,8 @@
 </div>
 <div class="visually-hidden" id="liveRegion" aria-live="polite"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 <script>
 const foods = [
   {
@@ -1893,6 +2147,20 @@ const filters = [
   { key: "light", label: "清爽" }
 ];
 
+/* 留空不影响：可用「复制微信群投票文案」。网页自动计票请填写 Firebase 网页应用配置（见控制台「项目设置」）。 */
+const EAT_WHAT_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAdrTsZ5bmW0dA-Onv_GHjOFbaNg5G8IIw",
+  authDomain: "eat-what-14250.firebaseapp.com",
+  databaseURL: "https://eat-what-14250-default-rtdb.firebaseio.com",
+  projectId: "eat-what-14250",
+  storageBucket: "eat-what-14250.firebasestorage.app",
+  messagingSenderId: "298418272051",
+  appId: "1:298418272051:web:754279e6df5a53d2d53046",
+  measurementId: "G-VZG5T6YQP7"
+};
+
+const VOTE_RTDB_PATH = "eatWhatVotes/sessions";
+
 const wheelPalette = ["var(--wheel-1)", "var(--wheel-2)", "var(--wheel-3)", "var(--wheel-4)", "var(--wheel-5)", "var(--wheel-6)"];
 const MOBILE_CARD_LIMIT = 8;
 let currentRotation = 0;
@@ -1942,6 +2210,20 @@ const resultReason = document.getElementById("resultReason");
 const foodCount = document.getElementById("foodCount");
 const wheelCaption = document.getElementById("wheelCaption");
 const liveRegion = document.getElementById("liveRegion");
+const votePanel = document.getElementById("votePanel");
+const voteIntroLead = document.getElementById("voteIntroLead");
+const voteCreateActions = document.getElementById("voteCreateActions");
+const voteWechatCopyBtn = document.getElementById("voteWechatCopyBtn");
+const voteCreateBtn = document.getElementById("voteCreateBtn");
+const voteStatus = document.getElementById("voteStatus");
+const voteShareBlock = document.getElementById("voteShareBlock");
+const voteLinkInput = document.getElementById("voteLinkInput");
+const voteCopyBtn = document.getElementById("voteCopyBtn");
+const voteShareBtn = document.getElementById("voteShareBtn");
+const voteList = document.getElementById("voteList");
+const voteBackToMenuBtn = document.getElementById("voteBackToMenuBtn");
+
+let voteDetachFirebase = null;
 
 function readSet(key) {
   try {
@@ -2157,6 +2439,7 @@ function renderExperience() {
     refreshActionButtons("__empty__");
     updateRecommendationPanel({ name: "先放宽条件", filterKey: "all" });
     wheelCaption.textContent = "当前没有候选项，请恢复一些选择后再启动转盘。";
+    updateVoteUiState();
     return;
   }
 
@@ -2167,6 +2450,7 @@ function renderExperience() {
   updateFeature(featuredFood);
   updateRecommendationPanel(featuredFood);
   wheelCaption.textContent = "点击中央按钮或主按钮，就能快速选出今天的午餐。";
+  updateVoteUiState();
 }
 
 function toggleFavorite(foodName) {
@@ -2201,6 +2485,293 @@ function announce(message) {
   window.setTimeout(() => {
     liveRegion.textContent = message;
   }, 30);
+}
+
+function isVoteBackendConfigured() {
+  return Boolean(
+    EAT_WHAT_FIREBASE_CONFIG.apiKey &&
+    EAT_WHAT_FIREBASE_CONFIG.databaseURL &&
+    typeof firebase !== "undefined"
+  );
+}
+
+function getVoteDatabase() {
+  if (!isVoteBackendConfigured()) return null;
+  if (!firebase.apps.length) {
+    firebase.initializeApp(EAT_WHAT_FIREBASE_CONFIG);
+  }
+  return firebase.database();
+}
+
+function votePickKey(sessionId) {
+  return `eatWhatVotePick_${sessionId}`;
+}
+
+function buildWechatVoteText() {
+  const list = getFilteredFoods();
+  if (!list.length) return "";
+  const lines = list.map((food, index) => `${index + 1}. ${food.emoji} ${food.name}（${food.category}）`);
+  return [
+    "【午饭吃什么】每人选 1 家，直接回复数字即可",
+    "",
+    ...lines,
+    "",
+    "改主意可以再发一条；发起人按数字在群里统计～"
+  ].join("\n");
+}
+
+function buildVoteShareUrl(sessionId) {
+  const u = new URL(window.location.href);
+  u.search = "";
+  u.searchParams.set("vote", sessionId);
+  return u.toString();
+}
+
+function detachVoteListener() {
+  if (typeof voteDetachFirebase === "function") {
+    voteDetachFirebase();
+    voteDetachFirebase = null;
+  }
+}
+
+function setVoteStatus(message, isError) {
+  voteStatus.textContent = message || "";
+  voteStatus.classList.toggle("is-error", Boolean(isError));
+}
+
+function renderVoteOptions(sessionId, data) {
+  voteList.innerHTML = "";
+  if (!data || !Array.isArray(data.options) || data.options.length === 0) {
+    voteList.innerHTML = "<div class=\"vote-empty\">没有可显示的选项，可能链接已过期或投票已被删掉。</div>";
+    return;
+  }
+
+  const counts = data.counts && typeof data.counts === "object" ? data.counts : {};
+  let total = 0;
+  data.options.forEach(opt => {
+    total += Math.max(0, Number(counts[opt.name]) || 0);
+  });
+  if (total === 0) total = 1;
+
+  const myPick = localStorage.getItem(votePickKey(sessionId));
+  let maxVotes = 0;
+  data.options.forEach(opt => {
+    maxVotes = Math.max(maxVotes, Math.max(0, Number(counts[opt.name]) || 0));
+  });
+
+  data.options.forEach(opt => {
+    const n = Math.max(0, Number(counts[opt.name]) || 0);
+    const pct = Math.round((n / total) * 1000) / 10;
+    const row = document.createElement("div");
+    row.className = "vote-option";
+    if (n > 0 && n === maxVotes) row.classList.add("is-leading");
+    row.innerHTML = `
+      <img class="vote-option-thumb" src="${opt.img}" alt="${opt.name}">
+      <div class="vote-option-body">
+        <div class="vote-option-title"><span class="emoji" aria-hidden="true">${opt.emoji}</span><span>${opt.name}</span></div>
+        <div class="vote-bar-wrap" aria-hidden="true"><div class="vote-bar" style="width:${pct}%"></div></div>
+        <div class="vote-option-meta"><span>${opt.category || ""}</span><strong>${n} 票 · ${pct}%</strong></div>
+      </div>
+    `;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "vote-cast-btn" + (myPick === opt.name ? " is-mine" : "");
+    btn.textContent = myPick === opt.name ? "我的选择" : "投这一票";
+    btn.disabled = !isVoteBackendConfigured();
+    btn.addEventListener("click", () => castVote(sessionId, opt.name));
+    row.appendChild(btn);
+    voteList.appendChild(row);
+  });
+}
+
+function bindVoteListener(sessionId) {
+  detachVoteListener();
+  const db = getVoteDatabase();
+  if (!db) return;
+  const ref = db.ref(`${VOTE_RTDB_PATH}/${sessionId}`);
+  const onVal = snapshot => {
+    renderVoteOptions(sessionId, snapshot.val());
+  };
+  ref.on("value", onVal);
+  voteDetachFirebase = () => ref.off("value", onVal);
+}
+
+async function castVote(sessionId, foodName) {
+  const db = getVoteDatabase();
+  if (!db) {
+    setVoteStatus("投票未启用。", true);
+    return;
+  }
+  const prev = localStorage.getItem(votePickKey(sessionId));
+  const countsRef = db.ref(`${VOTE_RTDB_PATH}/${sessionId}/counts`);
+  try {
+    if (prev && prev !== foodName) {
+      await countsRef.child(prev).transaction(c => Math.max(0, (c || 0) - 1));
+    }
+    if (!prev || prev !== foodName) {
+      await countsRef.child(foodName).transaction(c => (c || 0) + 1);
+    }
+    localStorage.setItem(votePickKey(sessionId), foodName);
+    announce(`已投票给 ${foodName}`);
+    setVoteStatus("记上了。", false);
+  } catch (error) {
+    console.error(error);
+    setVoteStatus("这次没投上，检查一下网络再试一次。", true);
+  }
+}
+
+async function createVoteSession() {
+  const db = getVoteDatabase();
+  if (!db) {
+    setVoteStatus("请先在页面里填写 Firebase 配置并启用实时数据库。", true);
+    return;
+  }
+  const candidates = getFilteredFoods();
+  if (!candidates.length) {
+    setVoteStatus("当前名单是空的：请先在上面改一下分类筛选，或把「今天先不吃」的店恢复进来。", true);
+    return;
+  }
+  const sessionId = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
+  const options = candidates.map(food => ({
+    name: food.name,
+    emoji: food.emoji,
+    img: food.img,
+    category: food.category
+  }));
+  const counts = {};
+  options.forEach(o => {
+    counts[o.name] = 0;
+  });
+  try {
+    await db.ref(`${VOTE_RTDB_PATH}/${sessionId}`).set({
+      created: Date.now(),
+      options,
+      counts
+    });
+    const shareUrl = buildVoteShareUrl(sessionId);
+    voteLinkInput.value = shareUrl;
+    voteShareBlock.hidden = false;
+    votePanel.classList.add("is-join-mode");
+    setVoteStatus("好了。把下面链接发到微信群，大家点开就能投票。", false);
+    bindVoteListener(sessionId);
+    history.replaceState(null, "", shareUrl);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setVoteStatus("投票已建好，链接已帮你复制好了，直接去微信粘贴发送即可。", false);
+      } catch {
+        /* ignore */
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    setVoteStatus("没创建成功：请检查 Firebase 规则是否允许写入、网络是否正常。", true);
+  }
+}
+
+function updateVoteUiState() {
+  const ready = isVoteBackendConfigured();
+  const hasCandidates = visibleFoods.length > 0;
+  voteWechatCopyBtn.disabled = !hasCandidates;
+  voteWechatCopyBtn.title = hasCandidates ? "" : "请先在上面的分类里筛出候选店";
+  voteCreateBtn.disabled = !ready || !hasCandidates;
+  voteCreateBtn.title = !ready
+    ? "请填写 EAT_WHAT_FIREBASE_CONFIG（需启用 Realtime Database）"
+    : !hasCandidates
+      ? "当前没有可投票的店，先调整上面的筛选"
+      : "";
+}
+
+function initVoteFeature() {
+  if (navigator.share) {
+    voteShareBtn.hidden = false;
+  }
+
+  voteWechatCopyBtn.addEventListener("click", async () => {
+    const text = buildWechatVoteText();
+    if (!text) {
+      setVoteStatus("当前名单是空的，请先调整上面的分类或恢复排除项。", true);
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(text);
+      setVoteStatus("已复制，打开微信粘贴到群里即可。", false);
+      announce("微信群投票文案已复制");
+    } catch {
+      setVoteStatus("若无法自动复制，请改用系统截图或手动输入店名。", false);
+    }
+  });
+
+  voteCreateBtn.addEventListener("click", () => {
+    createVoteSession();
+  });
+
+  voteCopyBtn.addEventListener("click", async () => {
+    const text = voteLinkInput.value;
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      setVoteStatus("已复制，去微信里长按粘贴发送就行。", false);
+    } catch {
+      voteLinkInput.focus();
+      voteLinkInput.select();
+      setVoteStatus("请长按下面输入框里的链接，手动复制。", false);
+    }
+  });
+
+  voteShareBtn.addEventListener("click", async () => {
+    const url = voteLinkInput.value;
+    if (!url || !navigator.share) return;
+    try {
+      await navigator.share({
+        title: "午饭投个票",
+        text: "点进来选今天吃什么，票数会自动汇总。",
+        url
+      });
+    } catch (error) {
+      if (error && error.name !== "AbortError") {
+        setVoteStatus("分享没调起来，用「复制链接」也可以。", false);
+      }
+    }
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const voteId = params.get("vote");
+  voteBackToMenuBtn.addEventListener("click", () => {
+    detachVoteListener();
+    history.replaceState(null, "", `${window.location.pathname}${window.location.hash || ""}`);
+    window.location.reload();
+  });
+
+  if (voteId) {
+    voteWechatCopyBtn.hidden = true;
+    voteCreateActions.hidden = false;
+    voteCreateBtn.hidden = true;
+    voteBackToMenuBtn.hidden = false;
+    votePanel.classList.add("is-join-mode");
+    document.title = "午饭投票 | 午间灵感菜单";
+    voteLinkInput.value = buildVoteShareUrl(voteId);
+    voteShareBlock.hidden = false;
+    if (isVoteBackendConfigured()) {
+      voteIntroLead.textContent =
+        "点一家店下面的按钮算一票；想换别家可以再点。大家看到的是同一份结果，票数会实时更新。";
+      bindVoteListener(voteId);
+      setVoteStatus("已载入，票数会实时同步。", false);
+    } else {
+      voteIntroLead.textContent =
+        "这个链接要在网页接上云服务后才能显示投票。请先点「返回完整菜单」，让发起人在本页使用「复制微信群投票文案」，把内容发到群里即可。";
+      setVoteStatus("当前读不到网页投票数据。", true);
+    }
+    window.setTimeout(() => {
+      votePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 500);
+  } else {
+    voteWechatCopyBtn.hidden = false;
+    voteList.innerHTML =
+      "<div class=\"vote-empty\">使用「网页里投票」并生成链接后，选项与链接会出现在这里。日常定午饭用「复制微信群投票文案」即可。</div>";
+  }
+
+  updateVoteUiState();
 }
 
 function showResult(food) {
@@ -2290,6 +2861,7 @@ function handleDialogKeydown(event) {
 }
 
 renderExperience();
+initVoteFeature();
 
 spinBtn.addEventListener("click", spin);
 heroSpinBtn.addEventListener("click", spin);
@@ -2334,7 +2906,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.14 });
 
-document.querySelectorAll(".reveal, .recommendation-panel, .filter-toolbar, .decision-panel, .cards-section, .food-card").forEach(element => {
+document.querySelectorAll(".reveal, .recommendation-panel, .vote-panel, .filter-toolbar, .decision-panel, .cards-section, .food-card").forEach(element => {
   observer.observe(element);
 });
 </script>
